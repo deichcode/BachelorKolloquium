@@ -2143,24 +2143,30 @@
     <bcf:datasource type="file" datatype="bibtex">kolloquium.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">HoloLensVolvo:3ZnwAVSG</bcf:citekey>
-    <bcf:citekey order="2">HoloLensVolvo:3ZnwAVSG</bcf:citekey>
-    <bcf:citekey order="3">HoloLensFractions:qf6SMVOm</bcf:citekey>
-    <bcf:citekey order="4">HoloLensFractions:qf6SMVOm</bcf:citekey>
-    <bcf:citekey order="5">GrossflacheStandort:2017vl</bcf:citekey>
-    <bcf:citekey order="6">GrossflacheStandort:2017vl</bcf:citekey>
-    <bcf:citekey order="7">HoloLens:uH2UA4Mc</bcf:citekey>
-    <bcf:citekey order="8">HoloLens:uH2UA4Mc</bcf:citekey>
-    <bcf:citekey order="9">Microsoft:ug</bcf:citekey>
-    <bcf:citekey order="10">Colaner:2016to</bcf:citekey>
-    <bcf:citekey order="11">Microsoft:ug</bcf:citekey>
-    <bcf:citekey order="12">Colaner:2016to</bcf:citekey>
-    <bcf:citekey order="13">Microsoft:tn</bcf:citekey>
-    <bcf:citekey order="14">Colaner:2016to</bcf:citekey>
-    <bcf:citekey order="15">Microsoft:tn</bcf:citekey>
-    <bcf:citekey order="16">Colaner:2016to</bcf:citekey>
-    <bcf:citekey order="17">HoloLensInteraction:IaH8RfEh</bcf:citekey>
-    <bcf:citekey order="18">HoloLensInteraction:IaH8RfEh</bcf:citekey>
+    <bcf:citekey order="1">HoloLens:uH2UA4Mc</bcf:citekey>
+    <bcf:citekey order="2">HoloLens:uH2UA4Mc</bcf:citekey>
+    <bcf:citekey order="3">GrossflacheStandort:2017vl</bcf:citekey>
+    <bcf:citekey order="4">GrossflacheStandort:2017vl</bcf:citekey>
+    <bcf:citekey order="5">HoloLens:uH2UA4Mc</bcf:citekey>
+    <bcf:citekey order="6">HoloLens:uH2UA4Mc</bcf:citekey>
+    <bcf:citekey order="7">GrossflacheStandort:2017vl</bcf:citekey>
+    <bcf:citekey order="8">GrossflacheStandort:2017vl</bcf:citekey>
+    <bcf:citekey order="9">HoloLens:uH2UA4Mc</bcf:citekey>
+    <bcf:citekey order="10">HoloLens:uH2UA4Mc</bcf:citekey>
+    <bcf:citekey order="11">GrossflacheStandort:2017vl</bcf:citekey>
+    <bcf:citekey order="12">GrossflacheStandort:2017vl</bcf:citekey>
+    <bcf:citekey order="13">HoloLensInteraction:IaH8RfEh</bcf:citekey>
+    <bcf:citekey order="14">HoloLensInteraction:IaH8RfEh</bcf:citekey>
+    <bcf:citekey order="15">Milgram:1994vl</bcf:citekey>
+    <bcf:citekey order="16">Milgram:1994vl</bcf:citekey>
+    <bcf:citekey order="17">Microsoft:ug</bcf:citekey>
+    <bcf:citekey order="18">Colaner:2016to</bcf:citekey>
+    <bcf:citekey order="19">Microsoft:ug</bcf:citekey>
+    <bcf:citekey order="20">Colaner:2016to</bcf:citekey>
+    <bcf:citekey order="21">Microsoft:tn</bcf:citekey>
+    <bcf:citekey order="22">Colaner:2016to</bcf:citekey>
+    <bcf:citekey order="23">Microsoft:tn</bcf:citekey>
+    <bcf:citekey order="24">Colaner:2016to</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nty/global/" type="entry" sortscheme="nty" sortnamekeyscheme="global" labelprefix="">
   <bcf:sorting>

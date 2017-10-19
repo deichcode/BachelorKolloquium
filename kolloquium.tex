@@ -21,6 +21,18 @@
 \setbeamertemplate{navigation symbols}{}%remove navigation symbols
 \setbeamertemplate{footline}[frame number]{}
 
+\usepackage{pdfcomment}
+\newcommand{\pdfnote}[1]{\marginnote{\pdfcomment{#1}}}
+
+\newcommand{\backupbegin}{
+    \newcounter{framenumberappendix}
+    \setcounter{framenumberappendix}{\value{framenumber}}
+ }
+ \newcommand{\backupend}{
+    \addtocounter{framenumberappendix}{-\value{framenumber}}
+    \addtocounter{framenumber}{\value{framenumberappendix}} 
+ }
+
 \title[HoloLens Anwendung für Windows Mixed Reality]{Augmented Reality Anwendung für Windows Mixed Reality unter Verwendung der HoloLens zur Vermarktung von Werbeflächen}
 \date[2017]{Donnerstag, 19. Oktober 2017}
 \author[S. Schröder]{Sören Schröder}
@@ -41,79 +53,111 @@
             \includegraphics[width=.9\linewidth]{logos/brickmakers-logo}
         \end{minipage}
     \end{figure}   
+
+    \pdfnote{Begrüßung}
+    \pdfnote{Mit Namen Vorstellen}
+    \pdfnote{Titel der Arbeit}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[shrink=25]
     \frametitle{Inhalte}
-    \setcounter{secnumdepth}{2}
     \tableofcontents[pausesections, hideallsubsections]
+    \pdfnote{Motivation}
+    \pdfnote{Aufgabenstellung}
+    \pdfnote{----------------------------}
+    \pdfnote{Verbaute Hardware}
+    \pdfnote{----------------------------}
+    \pdfnote{Anwendungsszenario}
+    \pdfnote{Anforderungen}
+    \pdfnote{----------------------------}
 \end{frame}
 
 \section{Einleitung}
-\begin{frame}
-    \frametitle{\insertsection}
-    \begin{itemize}[<+->]
-        \item AR und VR Lösungen für Konsumenten
-        \item Möglich durch Entwicklung der Smartphones
-        \item HoloLens
-    \end{itemize}
+% \begin{frame}
+%     \frametitle{\insertsection}
+%     \begin{itemize}[<+->]
+%         \item Verbreitung AR und VR
+%         \item HoloLens
+%     \end{itemize}
 
-% - Verfügbarkeit von AR und VR Geräten in letzten Jahren gestiegen
-% - Thema ist in der breiten Masse angekommen
-%   - Beispiele für VR: Cardboard, Oculus
-%   - Beispiele für AR: Pokémon Go, AR-Kit Apple
-%   - Schlüssel hierfür -> Entwicklung auf dem Markt für Smartphones (Displays (DPI) und Rechenleistung zu geringen Preisen)
-% - HoloLens
-%   - Wählt Ansatz mit durchsichtigen Displays
-%   - Kann virtuelle Objekte mit dem durch Sensoren erfassten Raum interagieren lassen
-%   - Erstes frei verkäufliche Gerät dieser Art
-\end{frame}
+
+%     \pdfnote{----------------------------}
+%     \pdfnote{Ein AR Gerät: HoloLens}
+%     \pdfnote{Grenzt ab zu andern AR Brillen}
+%     \pdfnote{Komplett aurtark}
+%     \pdfnote{Rechenleistung mobiler Computer}
+%     \pdfnote{Interaktion von Virtuellem mit dem Raum}
+
+% \end{frame}
 
 \subsection{Motiviation}
 \begin{frame}
     \frametitle{\insertsubsection} 
+    \pause
     \begin{figure}
         \centering
-        \begin{minipage}{.5\textwidth}
+        \begin{minipage}{.49\textwidth}
             \centering
-            \includegraphics[width=.9\linewidth]{images/HololensUsecaseCar}
-            \caption{Untersstützung bei Arbeiten~\cite{HoloLensVolvo:3ZnwAVSG}}
-        \end{minipage}%
-        \begin{minipage}{.5\textwidth}
+            \includegraphics[width=.9\linewidth]{images/HoloLens}
+            \caption{Microsoft HoloLens~\cite{HoloLens:uH2UA4Mc}}
+        \end{minipage}
+        \pause
+        \begin{minipage}{.49\textwidth}
             \centering
-            \includegraphics[width=.9\linewidth]{images/HololensUsecaseGame}
-            \caption{Neue Spielerfahrungen~\cite{HoloLensFractions:qf6SMVOm}}            
+            \includegraphics[width=.9\linewidth]{images/Billboard}
+            \caption{Großfläche (Plakatwand) der awk~\cite{GrossflacheStandort:2017vl}\label{fig:Billboard}}           
         \end{minipage}
     \end{figure}  
-
-
-    % - HoloLens bietet mögliche Einsatzgebiete
-    %   - Überstützung bei Arbeiten durch einblenden von virtuellen Objekten
-    %       - Reparatur von Maschinen
-    %   - Neue Spielerfahrung
+   
+    \pdfnote{Verfügbarkeit gestiegen}
+    \pdfnote{Oculus, Google Cardboard}
+    \pdfnote{Pokémon Go, Apple AR-Kit}
+    \pdfnote{--------------------------------}
+    \pdfnote{HoloLens}
+    \pdfnote{HMD ähnlich wie bekannte VR Headsets}
+    \pdfnote{Displays transparent -> AR Brille}
+    \pdfnote{Besonderheiten im vgl. Google Glass:}
+    \pdfnote{Erkennung des Raums (Spatial Mapping)}
+    \pdfnote{Interaktion viertueller Elemente mit Raum}
+    \pdfnote{Inside out Tracking}
+    \pdfnote{Erstes Gerät dieser Art}
+    \pdfnote{--------------------------------}
+    \pdfnote{Neue Anwendungsbereiche}
+    \pdfnote{Plakatwand der awk}
+    \pdfnote{Stellt Metadaten dieser zur Verfügung}
 \end{frame}
 
-\begin{frame}
-    \frametitle{\insertsubsection}
-    \begin{figure}
-        \centering
-        \includegraphics[width=\linewidth]{images/Billboard}
-        \caption{Großfläche (Plakatwand) der awk~\cite{GrossflacheStandort:2017vl}\label{fig:Billboard}}
-      \end{figure}
-\end{frame}
+% \begin{frame}
+%     \frametitle{\insertsubsection}
+%     \begin{figure}
+%         \centering
+%         \includegraphics[width=\linewidth]{images/Billboard}
+%         \caption{Großfläche (Plakatwand) der awk~\cite{GrossflacheStandort:2017vl}\label{fig:Billboard}}
+%     \end{figure}
+
+%     \pdfnote{Plakatwand der awk}
+%     \pdfnote{Stellt Metadaten dieser zur Verfügung}
+%     \pdfnote{Usecase: HoloLens bietet Informationen für potentielle Kunden}
+
+% \end{frame}
 
 \subsection{Aufgabenstellung}
 \begin{frame}
     \frametitle{\insertsubsection}
-    \begin{itemize}
+    \begin{itemize}[<+->]
         \item Entwicklung eine HoloLens Anwendung
         \item Anwendung zur Vermarktung von Werbeflächen
         \item Grenzen und Möglichkeiten der HoloLens        
     \end{itemize}
-    % - Entwicklung einer Anwendung für die Window Mixed Reality Plattform, im speziellen für die HoloLens
-    % - Anwendung zur Vermarktung von Werbeflächen
-    %   - Anzeigen von Metadaten am Standort
-    % - Forschungsfrage: Was sind die Grenzen und Möglichkeiten der HoloLens
+
+    \pdfnote{Enticklung einer Anwendung für die Windows Mixed Reality Plattform, im speziellen die HoloLens}
+    \pdfnote{Mixed Reality Plattform erklären}
+    \pdfnote{Anwendung nur für holographische Geräte (transparent)}
+    \pdfnote{--------------------------------}
+    \pdfnote{Anwendung zur Vermarktung von Werbeflächen}
+    \pdfnote{Anzeige der Informationen am Standort}
+    \pdfnote{--------------------------------}
+    \pdfnote{Forschungsfrage: Grenzen und Möglichkeiten}    
 \end{frame}
 
 % \section{Grundlagen}
@@ -246,50 +290,54 @@
 %     %   - Immersive Geräte  (opake Displays)
 % \end{frame}
 
-\section{Microsoft HoloLens}
+% \section{Microsoft HoloLens}
 
-\begin{frame}
-    \frametitle{\insertsection}
-    \begin{figure}
-        \centering
-            \includegraphics[width=.9\linewidth]{images/HoloLens}
-            \caption{Microsoft HoloLens~\cite{HoloLens:uH2UA4Mc}}
-      \end{figure}
-    % - Unterschied zwischen AR Geräten und HoloLens deutlich machen
-    %   - Erkennung des Raums
-    %   - Interaktion von virtuellen Elementen mit dem Raum
-    %   - Bestimmung der Pose mit Inside Out Tracking
-    % - Teile der Hardware ähnlich zu anderen mobilen Computer (Bspw. Intel Atom CPU, RAM, Batterie usw.)
-\end{frame}
+% \begin{frame}
+%     \frametitle{\insertsection}
+%     \begin{figure}
+%         \centering
+%             \includegraphics[width=.9\linewidth]{images/HoloLens}
+%             \caption{Microsoft HoloLens~\cite{HoloLens:uH2UA4Mc}}
+%       \end{figure}
 
-\begin{frame}
-    \frametitle{\insertsection}
-    \begin{figure}
-        \centering
-        \includegraphics[width=.8\linewidth]{images/HoloLensOptics}
-          \caption{Optik der HoloLens~\cite{Microsoft:ug}~\cite{Colaner:2016to}}
-      \end{figure}
-    % - IMU Gyroskop, Magnetometa, Beschleunigungsmesser
-    % - Projektoren werfen Bild in Linse (Wellenleiter)
-    % - Licht wird durch entsprechende optische Gitter gebrochen -> Totalreflexion
-    % - Licht wird durch Umlenkbereich Richtung Austrittsbereich gelenkt.
-    % - Licht tritt aus -> Bild auf Display 
-\end{frame}
+%       \pdfnote{HMD ähnlich wie bekannte VR Headsets}
+%       \pdfnote{Displays transparent}
+%       \pdfnote{Somit kein VR sondern eher AR Gerät}
+%       \pdfnote{Besonderheiten:}
+%       \pdfnote{Erkennung des Raums (Spatial Mapping)}
+%       \pdfnote{Interaktion viertueller Elemente mit Raum}
+%       \pdfnote{Inside out Tracking}
+% \end{frame}
 
-\begin{frame}
-    \frametitle{\insertsection}
-    \begin{figure}
-        \centering
-        \includegraphics[width=.8\linewidth]{images/HoloLensCameras}
-          \caption{Sensorleiste der HoloLens~\cite{Microsoft:tn}~\cite{Colaner:2016to}}
-      \end{figure}
-    % - Webcam: Aufnahme von Bildern und Videos
-    % - Umgebungslichtsensor: Helligkeitsanpassung
-    % - Tiefenkamera: Umgebungserkennung mittels Infrarotlicht Erkennung (Infrarotlicht von eigenen Projektoren)
-    %   - ( ToF (Time of Flight) Puls oder Sinusmodulation)
-    % - Environmental Understanding Kameras: Position im Raum und Gestenerkennung (Tiefenkamer unterstützt)
+% \begin{frame}
+%     \frametitle{\insertsection}
+%     \begin{figure}
+%         \centering
+%         \includegraphics[width=.8\linewidth]{images/HoloLensOptics.png}
+%           \caption{Optik der HoloLens~\cite{Microsoft:ug}~\cite{Colaner:2016to}}
+%       \end{figure}
+      
+%       \pdfnote{IMU: Gyroskop, Magnetometer, Beschleunigungssensor}
+%       \pdfnote{Projektoren}
+%       \pdfnote{Licht fällt druch optisches Gitter -> Totalreflexion}
+%       \pdfnote{Fällt in Umlenkbereich und Austrittsbereich}
+%       \pdfnote{Licht tritt aus -> Bild auf Display}
+% \end{frame}
 
-\end{frame}
+% \begin{frame}
+%     \frametitle{\insertsection}
+%     \begin{figure}
+%         \centering
+%         \includegraphics[width=.8\linewidth]{images/HoloLensCameras.png}
+%           \caption{Sensorleiste der HoloLens~\cite{Microsoft:tn}~\cite{Colaner:2016to}}
+%       \end{figure}
+%       \pdfnote{Foto/Video Kamera = Webcam: Aufnahme Bilder/Videos}
+%       \pdfnote{Umgebungslichtsensor}
+%       \pdfnote{Tiefenkamera}
+%       \pdfnote{(Time of Flieght durch Lichtpulse oder Sinusmodulation)}
+%       \pdfnote{Environmental Understanding Kameras (Position im Raum)}
+%       \pdfnote{Auch Gestenerkennung dabei Unterstützung Tiefenkamera}
+% \end{frame}
 
 \section{Konzeption}
 \subsection{Anwendungsszenario}
@@ -299,10 +347,12 @@
         \item Kunde betrachtet Plakatwände vor Ort
         \item Anwendung ermöglicht Anzeige von Informationen
     \end{itemize}
-    % - Kunde schaut sich Plakatwände vor Ort an
-    % - Anwendung zeigt ihm aktuelle Informationen zur entsprechenden Plakatwand and
-    %   - Preis, Verfügbarkeit, Personenkontakte 
-    % - Informationen können vom Nutzer ein und ausgeblendet werden
+    \pdfnote{Kunde schaut Plakatwände vor Ort an}
+    \pdfnote{Auswahl potentieller Werbeflächen}
+    \pdfnote{----------------------------------------}
+    \pdfnote{Anwendung Zeit Informationen zu Plakatwand an}
+    \pdfnote{Preis, Verfügbarkeit, Kontatke pro Tag}
+    \pdfnote{Benutzer kann Informationen Anfordern und wieder ausblenden}
 \end{frame}
 
 \subsection{Anforderungen}
@@ -314,15 +364,16 @@
         \item Anzeige der Informationen  
         \item Eindeutige Zuordnung zu Plakatwand
         \item Ausblenden der Informationen
+        \item Auffindbarkeit der Informationen
         \item Aktualität der Informationen
     \end{itemize}
-    % - Die Anwendung muss die Plakatwand, zu der Informationen angefordert werden, identifizieren.
-    % - Der Benutzer hat die Möglichkeit Informationen zu einer Plakatwand anzufordern.
-    % - Der Nutzer muss wissen, für welche Plakatwand er Informationen angezeigt bekommt.
-    % - Die Informationen müssen dem Benutzer angezeigt werden.
-    % - Der Benutzer hat die Möglichkeit die Informationen auszublenden.
-    % - Für den Benutzer muss jederzeit erkennbar sein, wo die Informationen angezeigt werden.
-    % - Die angezeigten Informationen müssen nach Änderungen seitens des Anbieters beim nächsten Anzeigen aktualisiert sein.
+    \pdfnote{Identifizierung der Plakatwand}
+    \pdfnote{Anforderung der Informationen}
+    \pdfnote{Anzeige der Informationen}
+    \pdfnote{Eindeutige Zuordnung zu Plakatwand}
+    \pdfnote{Ausblenden der Informationen}
+    \pdfnote{Auffindbarkeit der Informationen}
+    \pdfnote{Aktualität der Informationen}
 \end{frame}
 
 \section{Lösungsanstäze}
@@ -331,23 +382,15 @@
     \frametitle{\insertsubsection}
     \begin{figure}
         \centering
-        \begin{minipage}{0.74\linewidth}
-            \centering
-            \includegraphics[width=\linewidth]{images/UIWithGeolocation1}
-        \end{minipage}%
-        \begin{minipage}{0.24\linewidth}
-            \centering
-            \includegraphics[width=\linewidth]{images/GPSLog}        
-        \end{minipage}
+        \includegraphics[width=.5\linewidth]{images/billboard_identification_1}
     \end{figure}
-
-    % - Bestimmen des Standortes des Nutzers mittels GPS notwendig
-    %   - HoloLens besitzt kein GPS
-    %   - Positionsbestimmung am Smartphone
-    %   - Übermittlung per Bluetooth LE Advertising
-    %       - Keine Kopplung der Geräte Notwendig
-    %       - Identifikation der Pakte über Manufacturing ID
-    %       - Pakete können abgefangen und falsche Pakete empfangen werden -> Beides kein signifikantes Problem
+    
+    \pdfnote{Plakatwand über Standort bestimmen}
+    \pdfnote{In vielen Fällen kann dies nicht ausreichen}
+    \pdfnote{Entfernung zu Plakatwand verfeinert Suche}
+    \pdfnote{Tiefenkamera nur ca. 3 Meter}
+    \pdfnote{Erkennung der Plakatwand mit BV: OpenCV auf HoloLens nicht möglich gewesen}
+    \pdfnote{Weiter Verfeinerung über Blickrichtung: Kein Zugriff auf IMU}
 \end{frame}
 
 \subsection{Anfordern der Informationen}
@@ -358,16 +401,15 @@
         \includegraphics[width=\linewidth]{images/Interaction}
         \caption{Interaktion mit der HoloLens~\cite{HoloLensInteraction:IaH8RfEh}}
     \end{figure}
-    % - Eingabemethoden der HoloLens
-    %   - Gaze (Blickrichtung) -> Bestimmt Position des Cursors
-    %   - Gesten
-    %       - Air Tap analog zu Mausklick
-    %       - Bloom Beenden von Anwendungen
-    %   - Sprache
 
-    % - In HoloBillboards
-    % - Air Tap zum Anfordern der Informationen und Ausblenden Der Informationen
-    % - Sprachbefehle zum Ein- und Ausblenden der Informationen
+    \pdfnote{Eingabemethoden der HoloLens}
+    \pdfnote{Gaze = Blickrichtung: Position Cursor}
+    \pdfnote{Gesten: Air-Tap = Mausklick; Bloom = Windows Taste}
+    \pdfnote{Sprache: Bisher nur Englisch}
+    \pdfnote{In der Anwendung:}
+    \pdfnote{Air-Tap fordert Informationen an}
+    \pdfnote{Gaze auf Close Button und Air-Tap blendet aus}
+    \pdfnote{Analog dazu Sprachbefehle}
 \end{frame}
 
 \subsection{Anzeigen der Informationen}
@@ -377,8 +419,11 @@
         \centering
         \includegraphics[width=.6\linewidth]{images/DetailWindowInUnity}
     \end{figure}
-    % - UI in Unity
-    %   - Daten werden in Fenster dargestellt
+
+    \pdfnote{Informationen in Fenster}
+    \pdfnote{Besitzt Button zum Schließen}
+    \pdfnote{Tagalong -> kein unangenehmes Gefühl wie HUD}
+    \pdfnote{Billboard}
 \end{frame}
 
 \subsection{Eindeutige Zuordnung}
@@ -386,25 +431,217 @@
     \frametitle{\insertsubsection}
     \begin{figure}
         \centering
-        \includegraphics[width=.6\linewidth]{images/billboard_identification_1}
+        \includegraphics[width=\linewidth]{images/UIWithoutGeolocation2}
     \end{figure}
-    % - Zuordnung zum jetzigen Zeitpunkt implizit über geringsten Abstand möglich
+
+    \pdfnote{Impliziete Zuordnung über nähe}
 \end{frame}
 
 \subsection{Aktualität der Informationen}
 \begin{frame}
     \frametitle{\insertsubsection}
-    
+    \begin{itemize}[<+->]
+        \item Häufige Aktualisierung der Daten
+        \item Updates zu langwierig
+        \item Web API
+        \item Liefert Informationen zu Plakatwänden zurück
+        \item Daten könne aktuell gehalten werden
+    \end{itemize}
+
+\end{frame}
+
+\section{Struktur der Anwendung}
+\begin{frame}
+    \frametitle{\insertsection}
+    \begin{figure}
+        \centering
+        \includegraphics[width=\linewidth]{images/Komponenten}
+    \end{figure}
+
+    \pdfnote{Farben erklären}
+    \pdfnote{Exemplarischer}
+    \pdfnote{Web API läuft auf Server}
+    \pdfnote{HoloLens und Android Anwendung Starten}
+    \pdfnote{Übergabe GPS Daten erklären}
+    \pdfnote{User Flow erklären}
 \end{frame}
 
 \section{Auswertung}
+\subsection{Anforderungserfüllung}
 \begin{frame}
-    Lorem Ipsum
+    \frametitle{\insertsubsection}
+    \begin{itemize}[<+->]
+        \item Identifizierung der Plakatwand
+        \item Anforderung der Informationen
+        \item Anzeige der Informationen  
+        \item Eindeutige Zuordnung zu Plakatwand
+        \item Ausblenden der Informationen
+        \item Auffindbarkeit der Informationen
+        \item Aktualität der Informationen
+    \end{itemize}
+
+    \pdfnote{Nur für nächste Plakatwand möglich}
+    \pdfnote{Flasche Ergebnisse Möglich}
+    \pdfnote{----------------------------------}
+    \pdfnote{Sprache und Geste}
+    \pdfnote{Sprache in Lauter Umgebung möglich}
+    \pdfnote{Sprache z.Z. Englisch}
+    \pdfnote{----------------------------------}
+    \pdfnote{Informationen werden Angzeigt}    
+    \pdfnote{Sonnenschein}
+    \pdfnote{----------------------------------}
+    \pdfnote{Close Button}
+    \pdfnote{----------------------------------}
+    \pdfnote{Tagealong, Billboard}
+    \pdfnote{----------------------------------}
+    \pdfnote{Daten aktualisierbar}
+    \pdfnote{Änderungen praktisch Zeitlich verfügbar}
+
 \end{frame}
 
-\section{Fazit und Ausblick}
+\subsection{Forschungsfrage}
 \begin{frame}
-    Lorem Ipsum
+    \frametitle{Möglichkeiten}
+    \begin{itemize}[<+->]
+        \item Leichter einstieg mit Unity
+        \item Neue Geräteklasse
+        \item Immersion
+        \item Erweiterbarkeit
+    \end{itemize}
+
+    \pdfnote{Leichter Einstieg mit Unity}
+    \pdfnote{Mixed Reality Toolkit}
+    \pdfnote{-> Viele Entwickler Probieren aus}
+    \pdfnote{---------------------------}
+    \pdfnote{Neue Anwendungsfelder}
+    \pdfnote{Neue Konzepte zur Beidung und Anzeige zu erforschen}
+    \pdfnote{---------------------------}
+    \pdfnote{Erkennung des Raums}  
+    \pdfnote{---------------------------}
+    \pdfnote{Einschränkungen ausgleichen}
+    \pdfnote{WiFi: Daten auslager, Cloud Computing}    
+    \pdfnote{Bluetooth: GPS}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Grenzen}
+    \begin{itemize}[<+->]
+        \item Entwicklungsgeschwindigkeit
+        \item OpenCV
+        \item Sichtfeld
+        \item Akkulaufzeit
+        \item Einsatz im Freien
+    \end{itemize}
+
+    \pdfnote{Häufige Build und Deployment Probleme}
+    \pdfnote{teilweise Sporadisch, nicht reproduzierbar}
+    \pdfnote{Lange Entwicklungkette (Viele Tools)}
+    \pdfnote{------------------------------------}
+    \pdfnote{OpenCV konnte nicht verwendet werden}
+    \pdfnote{DLL konnte nicht geladen werden}
+    \pdfnote{Lösung: Kauf des Plugins o. weiter forschen}
+    \pdfnote{------------------------------------}
+    \pdfnote{30° auf 17,5° (Oculus 100° auf 100°)}
+    \pdfnote{Objekte am Rand nicht wirklich am Rand}
+    \pdfnote{Kleineres Sichtfeld -> Weniger Informationen}
+    \pdfnote{------------------------------------}
+    \pdfnote{5,5 h normale Nutzung}
+    \pdfnote{Bei längern Außeneinsätzen ggf. zu wenig}
+    \pdfnote{Dauerhafte Wifi/Bluetooth nutzung kann veringern}
+    \pdfnote{Hohe Helligkeit draußen negativ}
+    \pdfnote{------------------------------------}
+    \pdfnote{Display nicht ausreichend bei Sonnenschein}    
+    \pdfnote{GPS umständlich}
+    \pdfnote{Kein mobiles Internet -> Smartphone notwenidg}
+    \pdfnote{Problem: Große Datenmengen}
+\end{frame}
+
+\section{Fazit}
+\begin{frame}
+    \frametitle{\insertsection}
+    \begin{itemize}[<+->]
+        \item Interessant
+        \item Leichter Einstieg
+        \item Unerwartete Probleme
+        \item Erweiterung möglich
+        \item Gerät für drinnen
+        \item Proof of Concept
+    \end{itemize}
+
+    \pdfnote{Interssant durch neue Möglichkeiten}
+    \pdfnote{Informationen präsentieren}
+    \pdfnote{Nutzerinteraktion}
+    \pdfnote{-----------------------------------}
+    \pdfnote{Leichter Einstieg mittels Unity Möglich}
+    \pdfnote{-----------------------------------}
+    \pdfnote{Aufwand schwer Abschätzbar}
+    \pdfnote{Probleme häufig noch nicht Dokumentiert}
+    \pdfnote{Frustrationstolleranz}
+    \pdfnote{-----------------------------------}
+    \pdfnote{Erweiterung Möglich}
+    \pdfnote{Kann teilweise schwächen draußen Ausgleich}
+    \pdfnote{-----------------------------------}
+    \pdfnote{Display zu Dunkel}
+    \pdfnote{Akkulaufzeit begrenzt}
+    \pdfnote{Möglichkeiten des Spatial Mappings drinn besser nutzbar}
+    \pdfnote{-----------------------------------}
+    \pdfnote{Kein fertiges Produkt eher Proof of Concept}
+    \pdfnote{Hardware und Softwareseite Defizite}
+    \pdfnote{Viele Komponenten erhöhen Anfälligkeit für Fehler}
+\end{frame}
+
+\section{Ausblick}
+
+\begin{frame}
+    \frametitle{\insertsection}
+    \begin{itemize}[<+->]
+        \item Nächste Generation der HoloLens
+        \item Identifizierung der Plakatwände
+        \item Verbesserung der Anzeige
+        \item Überblenden von Motiven
+    \end{itemize}
+
+    \pdfnote{AI-Chip}
+    \pdfnote{Erkennung von Plakatwänden}
+    \pdfnote{Besser Displays}
+    \pdfnote{Evtl. für drauße ausgelegt}
+    \pdfnote{Unwahrscheinlich da Ökosystem für drinnen ausgelegt}
+    \pdfnote{--------------------------}
+    \pdfnote{Abstand zu Plakatwand}
+    \pdfnote{Mit BV in OpenCV möglich}
+    \pdfnote{Besser Tiefenkamera}
+    \pdfnote{Daten Megentometer}
+    \pdfnote{--------------------------}
+    \pdfnote{Indikatoren an Plakatwand}
+    \pdfnote{Standort der PW nicht bekannt}
+    \pdfnote{--------------------------}
+    \pdfnote{Mehrwert, da Kunde Werbung vor Druck sehen kann}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Fragen und Diskussion}
+    Danke für Ihre Aufmerksamkeit!
+
+    Die Folien sind unter github.com/deichcode/BachelorKolloquium zu finden.
+\end{frame}
+
+\appendix
+\backupbegin{}
+
+\begin{frame}[allowframebreaks]
+    \frametitle{Quellen}
+    \printbibliography{}    
+\end{frame}
+
+\section{Zusatzfolien}
+
+\begin{frame}
+    \frametitle{Reality-Virtuality-Conitnuum}  
+    \begin{figure}
+        \centering
+        \includegraphics[width=\linewidth]{images/RVC}
+        \caption{Reality-Virtuality Conitnuum nach Milgram et al. (1994)~\cite{Milgram:1994vl}}
+    \end{figure}
 \end{frame}
 
 \begin{frame}
@@ -438,13 +675,35 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Fragen und Diskussion}
-    Danke für Ihre Aufmerksamkeit!
+    \frametitle{HoloLens Optik}
+    \begin{figure}
+        \centering
+        \includegraphics[width=.8\linewidth]{images/HoloLensOptics.png}
+          \caption{Optik der HoloLens~\cite{Microsoft:ug}~\cite{Colaner:2016to}}
+      \end{figure}
+      
+      \pdfnote{IMU: Gyroskop, Magnetometer, Beschleunigungssensor}
+      \pdfnote{Projektoren}
+      \pdfnote{Licht fällt druch optisches Gitter -> Totalreflexion}
+      \pdfnote{Fällt in Umlenkbereich und Austrittsbereich}
+      \pdfnote{Licht tritt aus -> Bild auf Display}
 \end{frame}
 
-\begin{frame}[allowframebreaks]
-    \frametitle{Quellen}
-    \printbibliography{}    
+\begin{frame}
+    \frametitle{HoloLens Sensorleiste}
+    \begin{figure}
+        \centering
+        \includegraphics[width=.8\linewidth]{images/HoloLensCameras.png}
+          \caption{Sensorleiste der HoloLens~\cite{Microsoft:tn}~\cite{Colaner:2016to}}
+      \end{figure}
+      \pdfnote{Foto/Video Kamera = Webcam: Aufnahme Bilder/Videos}
+      \pdfnote{Umgebungslichtsensor}
+      \pdfnote{Tiefenkamera}
+      \pdfnote{(Time of Flieght durch Lichtpulse oder Sinusmodulation)}
+      \pdfnote{Environmental Understanding Kameras (Position im Raum)}
+      \pdfnote{Auch Gestenerkennung dabei Unterstützung Tiefenkamera}
 \end{frame}
+
+\backupend{}
 
 \end{document}
