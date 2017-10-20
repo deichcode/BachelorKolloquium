@@ -34,6 +34,7 @@
  }
 
 \title[HoloLens Anwendung für Windows Mixed Reality]{Augmented Reality Anwendung für Windows Mixed Reality unter Verwendung der HoloLens zur Vermarktung von Werbeflächen}
+\subtitle{Bachelorarbeit}
 \date[2017]{Donnerstag, 19. Oktober 2017}
 \author[S. Schröder]{Sören Schröder}
 \institute[Uni Koblenz]{Universität Koblenz Landau}
@@ -57,22 +58,28 @@
     \pdfnote{Begrüßung}
     \pdfnote{Mit Namen Vorstellen}
     \pdfnote{Titel der Arbeit}
+    \pdfnote{BRICKMAKERS}
 \end{frame}
 
-\begin{frame}[shrink=25]
+\begin{frame}[shrink]
     \frametitle{Inhalte}
     \tableofcontents[pausesections, hideallsubsections]
     \pdfnote{Motivation}
-    \pdfnote{Aufgabenstellung}
-    \pdfnote{----------------------------}
-    \pdfnote{Verbaute Hardware}
     \pdfnote{----------------------------}
     \pdfnote{Anwendungsszenario}
     \pdfnote{Anforderungen}
+    \pdfnote{Aufgabenstellung}
     \pdfnote{----------------------------}
+    \pdfnote{Lösungsanstäze}
+    \pdfnote{----------------------------}
+    \pdfnote{Forschungsfrage}
+    \pdfnote{----------------------------}
+    \pdfnote{Fazit}
+    \pdfnote{----------------------------}
+    \pdfnote{Ausblick}
 \end{frame}
 
-\section{Einleitung}
+% \section{Einleitung}
 % \begin{frame}
 %     \frametitle{\insertsection}
 %     \begin{itemize}[<+->]
@@ -90,9 +97,9 @@
 
 % \end{frame}
 
-\subsection{Motiviation}
+\section{Motiviation}
 \begin{frame}
-    \frametitle{\insertsubsection} 
+    \frametitle{\insertsection} 
     \pause
     \begin{figure}
         \centering
@@ -110,13 +117,11 @@
     \end{figure}  
    
     \pdfnote{Verfügbarkeit gestiegen}
-    \pdfnote{Oculus, Google Cardboard}
-    \pdfnote{Pokémon Go, Apple AR-Kit}
     \pdfnote{--------------------------------}
     \pdfnote{HoloLens}
     \pdfnote{HMD ähnlich wie bekannte VR Headsets}
     \pdfnote{Displays transparent -> AR Brille}
-    \pdfnote{Besonderheiten im vgl. Google Glass:}
+    \pdfnote{Besonderheiten:}
     \pdfnote{Erkennung des Raums (Spatial Mapping)}
     \pdfnote{Interaktion viertueller Elemente mit Raum}
     \pdfnote{Inside out Tracking}
@@ -140,25 +145,6 @@
 %     \pdfnote{Usecase: HoloLens bietet Informationen für potentielle Kunden}
 
 % \end{frame}
-
-\subsection{Aufgabenstellung}
-\begin{frame}
-    \frametitle{\insertsubsection}
-    \begin{itemize}[<+->]
-        \item Entwicklung eine HoloLens Anwendung
-        \item Anwendung zur Vermarktung von Werbeflächen
-        \item Grenzen und Möglichkeiten der HoloLens        
-    \end{itemize}
-
-    \pdfnote{Enticklung einer Anwendung für die Windows Mixed Reality Plattform, im speziellen die HoloLens}
-    \pdfnote{Mixed Reality Plattform erklären}
-    \pdfnote{Anwendung nur für holographische Geräte (transparent)}
-    \pdfnote{--------------------------------}
-    \pdfnote{Anwendung zur Vermarktung von Werbeflächen}
-    \pdfnote{Anzeige der Informationen am Standort}
-    \pdfnote{--------------------------------}
-    \pdfnote{Forschungsfrage: Grenzen und Möglichkeiten}    
-\end{frame}
 
 % \section{Grundlagen}
 % \begin{frame}
@@ -345,7 +331,7 @@
     \frametitle{\insertsubsection}
     \begin{itemize}[<+->]
         \item Kunde betrachtet Plakatwände vor Ort
-        \item Anwendung ermöglicht Anzeige von Informationen
+        \item Anwendung bietet Informationen
     \end{itemize}
     \pdfnote{Kunde schaut Plakatwände vor Ort an}
     \pdfnote{Auswahl potentieller Werbeflächen}
@@ -363,8 +349,8 @@
         \item Anforderung der Informationen
         \item Anzeige der Informationen  
         \item Eindeutige Zuordnung zu Plakatwand
-        \item Ausblenden der Informationen
         \item Auffindbarkeit der Informationen
+        \item Ausblenden der Informationen
         \item Aktualität der Informationen
     \end{itemize}
     \pdfnote{Identifizierung der Plakatwand}
@@ -376,21 +362,48 @@
     \pdfnote{Aktualität der Informationen}
 \end{frame}
 
+\subsection{Aufgabenstellung}
+\begin{frame}
+    \frametitle{\insertsubsection}
+    \begin{itemize}[<+->]
+        \item Entwicklung eine HoloLens Anwendung
+        \item Grenzen und Möglichkeiten der HoloLens        
+    \end{itemize}
+
+    \pdfnote{Entwicklung einer Anwendung für die Windows Mixed Reality Plattform}
+    \pdfnote{Im speziellen die HoloLens}
+    \pdfnote{Mixed Reality Plattform erklären}
+    \pdfnote{Anwendung nur für holographische Geräte (transparent)}
+    \pdfnote{--------------------------------}
+    \pdfnote{Forschungsfrage: Grenzen und Möglichkeiten}    
+\end{frame}
+
 \section{Lösungsanstäze}
 \subsection{Identifizierung der Plakatwand}
 \begin{frame}
     \frametitle{\insertsubsection}
     \begin{figure}
         \centering
-        \includegraphics[width=.5\linewidth]{images/billboard_identification_1}
-    \end{figure}
+        \begin{minipage}{0.74\linewidth}
+            \centering
+            \includegraphics[width=\textwidth]{images/UIWithGeolocation1}
+            \caption{Anwendung aus Benutzersicht}
+        \end{minipage}
+        \begin{minipage}{0.24\linewidth}
+            \centering
+            \includegraphics[width=\textwidth]{images/GPSLog}
+            \caption{Android Anwendung}         
+        \end{minipage}
+    \end{figure}  
     
-    \pdfnote{Plakatwand über Standort bestimmen}
-    \pdfnote{In vielen Fällen kann dies nicht ausreichen}
-    \pdfnote{Entfernung zu Plakatwand verfeinert Suche}
-    \pdfnote{Tiefenkamera nur ca. 3 Meter}
-    \pdfnote{Erkennung der Plakatwand mit BV: OpenCV auf HoloLens nicht möglich gewesen}
-    \pdfnote{Weiter Verfeinerung über Blickrichtung: Kein Zugriff auf IMU}
+    \pdfnote{Bestimmung über Standort}
+    \pdfnote{Standortdaten Plakatwände bekannt}
+    \pdfnote{Standortdaten Nutzer über GPS}
+    \pdfnote{HoloLens kein GPS}
+    \pdfnote{GPS über Android (Bluetooth LE Advertising)}
+    \pdfnote{Android App sendet Pakete mit Standortdaten}
+    \pdfnote{Unity Anwendung empfängt diese}
+    \pdfnote{Plakatwand wird anhand von Standort bestimmt}
 \end{frame}
 
 \subsection{Anfordern der Informationen}
@@ -410,6 +423,7 @@
     \pdfnote{Air-Tap fordert Informationen an}
     \pdfnote{Gaze auf Close Button und Air-Tap blendet aus}
     \pdfnote{Analog dazu Sprachbefehle}
+    \pdfnote{Impliziete Zuordnung über nähe}    
 \end{frame}
 
 \subsection{Anzeigen der Informationen}
@@ -426,110 +440,104 @@
     \pdfnote{Billboard}
 \end{frame}
 
-\subsection{Eindeutige Zuordnung}
-\begin{frame}
-    \frametitle{\insertsubsection}
-    \begin{figure}
-        \centering
-        \includegraphics[width=\linewidth]{images/UIWithoutGeolocation2}
-    \end{figure}
+% \subsection{Eindeutige Zuordnung}
+% \begin{frame}
+%     \frametitle{\insertsubsection}
+%     \begin{figure}
+%         \centering
+%         \includegraphics[width=\linewidth]{images/UIWithoutGeolocation2}
+%     \end{figure}
 
-    \pdfnote{Impliziete Zuordnung über nähe}
-\end{frame}
+%     \pdfnote{Impliziete Zuordnung über nähe}
+% \end{frame}
 
 \subsection{Aktualität der Informationen}
 \begin{frame}
     \frametitle{\insertsubsection}
     \begin{itemize}[<+->]
-        \item Häufige Aktualisierung der Daten
-        \item Updates zu langwierig
         \item Web API
-        \item Liefert Informationen zu Plakatwänden zurück
-        \item Daten könne aktuell gehalten werden
+        \item Liefert Informationen zu Plakatwand zurück
+        \item Daten können aktuell gehalten werden
     \end{itemize}
+    
+    \pdfnote{Web API}
+    \pdfnote{Liefert Informationen zu Plakatwand zurück}
+    \pdfnote{Daten können aktuell gehalten werden}
 
 \end{frame}
 
-\section{Struktur der Anwendung}
-\begin{frame}
-    \frametitle{\insertsection}
-    \begin{figure}
-        \centering
-        \includegraphics[width=\linewidth]{images/Komponenten}
-    \end{figure}
+% \section{Struktur der Anwendung}
+% \begin{frame}
+%     \frametitle{\insertsection}
+%     \begin{figure}
+%         \centering
+%         \includegraphics[width=\linewidth]{images/Komponenten}
+%     \end{figure}
 
-    \pdfnote{Farben erklären}
-    \pdfnote{Exemplarischer}
-    \pdfnote{Web API läuft auf Server}
-    \pdfnote{HoloLens und Android Anwendung Starten}
-    \pdfnote{Übergabe GPS Daten erklären}
-    \pdfnote{User Flow erklären}
-\end{frame}
+%     \pdfnote{Farben erklären}
+%     \pdfnote{Exemplarischer}
+%     \pdfnote{Web API läuft auf Server}
+%     \pdfnote{HoloLens und Android Anwendung Starten}
+%     \pdfnote{Übergabe GPS Daten erklären}
+%     \pdfnote{User Flow erklären}
+% \end{frame}
 
 \section{Auswertung}
-\subsection{Anforderungserfüllung}
-\begin{frame}
-    \frametitle{\insertsubsection}
-    \begin{itemize}[<+->]
-        \item Identifizierung der Plakatwand
-        \item Anforderung der Informationen
-        \item Anzeige der Informationen  
-        \item Eindeutige Zuordnung zu Plakatwand
-        \item Ausblenden der Informationen
-        \item Auffindbarkeit der Informationen
-        \item Aktualität der Informationen
-    \end{itemize}
+% \subsection{Anforderungserfüllung}
+% \begin{frame}
+%     \frametitle{\insertsubsection}
+%     \begin{itemize}[<+->]
+%         \item Identifizierung der Plakatwand
+%         \item Anforderung der Informationen
+%         \item Anzeige der Informationen  
+%         \item Eindeutige Zuordnung zu Plakatwand
+%         \item Ausblenden der Informationen
+%         \item Auffindbarkeit der Informationen
+%         \item Aktualität der Informationen
+%     \end{itemize}
 
-    \pdfnote{Nur für nächste Plakatwand möglich}
-    \pdfnote{Flasche Ergebnisse Möglich}
-    \pdfnote{----------------------------------}
-    \pdfnote{Sprache und Geste}
-    \pdfnote{Sprache in Lauter Umgebung möglich}
-    \pdfnote{Sprache z.Z. Englisch}
-    \pdfnote{----------------------------------}
-    \pdfnote{Informationen werden Angzeigt}    
-    \pdfnote{Sonnenschein}
-    \pdfnote{----------------------------------}
-    \pdfnote{Close Button}
-    \pdfnote{----------------------------------}
-    \pdfnote{Tagealong, Billboard}
-    \pdfnote{----------------------------------}
-    \pdfnote{Daten aktualisierbar}
-    \pdfnote{Änderungen praktisch Zeitlich verfügbar}
+%     \pdfnote{Nur für nächste Plakatwand möglich}
+%     \pdfnote{Flasche Ergebnisse Möglich}
+%     \pdfnote{----------------------------------}
+%     \pdfnote{Sprache und Geste}
+%     \pdfnote{Sprache in Lauter Umgebung möglich}
+%     \pdfnote{Sprache z.Z. Englisch}
+%     \pdfnote{----------------------------------}
+%     \pdfnote{Informationen werden Angzeigt}    
+%     \pdfnote{Sonnenschein}
+%     \pdfnote{----------------------------------}
+%     \pdfnote{Close Button}
+%     \pdfnote{----------------------------------}
+%     \pdfnote{Tagealong, Billboard}
+%     \pdfnote{----------------------------------}
+%     \pdfnote{Daten aktualisierbar}
+%     \pdfnote{Änderungen praktisch Zeitlich verfügbar}
 
-\end{frame}
+% \end{frame}
 
 \subsection{Forschungsfrage}
 \begin{frame}
     \frametitle{Möglichkeiten}
     \begin{itemize}[<+->]
-        \item Leichter einstieg mit Unity
-        \item Neue Geräteklasse
-        \item Immersion
+        \item Leichter Einstieg
+        \item Neue Formen der Interaktion
         \item Erweiterbarkeit
     \end{itemize}
 
     \pdfnote{Leichter Einstieg mit Unity}
     \pdfnote{Mixed Reality Toolkit}
-    \pdfnote{-> Viele Entwickler Probieren aus}
     \pdfnote{---------------------------}
-    \pdfnote{Neue Anwendungsfelder}
-    \pdfnote{Neue Konzepte zur Beidung und Anzeige zu erforschen}
+    \pdfnote{Sensoren, Erkennung des Raums}
+    \pdfnote{Interkation von Reellem und Virtuellem}
     \pdfnote{---------------------------}
-    \pdfnote{Erkennung des Raums}  
-    \pdfnote{---------------------------}
-    \pdfnote{Einschränkungen ausgleichen}
-    \pdfnote{WiFi: Daten auslager, Cloud Computing}    
-    \pdfnote{Bluetooth: GPS}
+    \pdfnote{WiFi, Bluetooth}    
 \end{frame}
 
 \begin{frame}
     \frametitle{Grenzen}
     \begin{itemize}[<+->]
         \item Entwicklungsgeschwindigkeit
-        \item OpenCV
         \item Sichtfeld
-        \item Akkulaufzeit
         \item Einsatz im Freien
     \end{itemize}
 
@@ -537,55 +545,36 @@
     \pdfnote{teilweise Sporadisch, nicht reproduzierbar}
     \pdfnote{Lange Entwicklungkette (Viele Tools)}
     \pdfnote{------------------------------------}
-    \pdfnote{OpenCV konnte nicht verwendet werden}
-    \pdfnote{DLL konnte nicht geladen werden}
-    \pdfnote{Lösung: Kauf des Plugins o. weiter forschen}
-    \pdfnote{------------------------------------}
     \pdfnote{30° auf 17,5° (Oculus 100° auf 100°)}
     \pdfnote{Objekte am Rand nicht wirklich am Rand}
     \pdfnote{Kleineres Sichtfeld -> Weniger Informationen}
     \pdfnote{------------------------------------}
-    \pdfnote{5,5 h normale Nutzung}
-    \pdfnote{Bei längern Außeneinsätzen ggf. zu wenig}
-    \pdfnote{Dauerhafte Wifi/Bluetooth nutzung kann veringern}
-    \pdfnote{Hohe Helligkeit draußen negativ}
-    \pdfnote{------------------------------------}
     \pdfnote{Display nicht ausreichend bei Sonnenschein}    
-    \pdfnote{GPS umständlich}
-    \pdfnote{Kein mobiles Internet -> Smartphone notwenidg}
-    \pdfnote{Problem: Große Datenmengen}
+    \pdfnote{5,5 h normale Nutzung}
+    \pdfnote{GPS und Mobiles Internet (Big Data) umständlich}
 \end{frame}
 
 \section{Fazit}
 \begin{frame}
     \frametitle{\insertsection}
     \begin{itemize}[<+->]
-        \item Interessant
         \item Leichter Einstieg
         \item Unerwartete Probleme
-        \item Erweiterung möglich
         \item Gerät für drinnen
         \item Proof of Concept
     \end{itemize}
 
-    \pdfnote{Interssant durch neue Möglichkeiten}
-    \pdfnote{Informationen präsentieren}
-    \pdfnote{Nutzerinteraktion}
-    \pdfnote{-----------------------------------}
     \pdfnote{Leichter Einstieg mittels Unity Möglich}
+    \pdfnote{Viele Anwendung}
+    \pdfnote{Attraktive Plattform}
     \pdfnote{-----------------------------------}
     \pdfnote{Aufwand schwer Abschätzbar}
-    \pdfnote{Probleme häufig noch nicht Dokumentiert}
-    \pdfnote{Frustrationstolleranz}
-    \pdfnote{-----------------------------------}
-    \pdfnote{Erweiterung Möglich}
-    \pdfnote{Kann teilweise schwächen draußen Ausgleich}
     \pdfnote{-----------------------------------}
     \pdfnote{Display zu Dunkel}
     \pdfnote{Akkulaufzeit begrenzt}
-    \pdfnote{Möglichkeiten des Spatial Mappings drinn besser nutzbar}
+    \pdfnote{Möglichkeiten der HL wie Spatial Mappings drinn besser nutzbar}
     \pdfnote{-----------------------------------}
-    \pdfnote{Kein fertiges Produkt eher Proof of Concept}
+    \pdfnote{Kein fertiges Produkt}
     \pdfnote{Hardware und Softwareseite Defizite}
     \pdfnote{Viele Komponenten erhöhen Anfälligkeit für Fehler}
 \end{frame}
@@ -597,32 +586,26 @@
     \begin{itemize}[<+->]
         \item Nächste Generation der HoloLens
         \item Identifizierung der Plakatwände
-        \item Verbesserung der Anzeige
         \item Überblenden von Motiven
     \end{itemize}
 
-    \pdfnote{AI-Chip}
+    \pdfnote{AI-Chip Deep Nural Networks}
     \pdfnote{Erkennung von Plakatwänden}
     \pdfnote{Besser Displays}
-    \pdfnote{Evtl. für drauße ausgelegt}
-    \pdfnote{Unwahrscheinlich da Ökosystem für drinnen ausgelegt}
     \pdfnote{--------------------------}
+    \pdfnote{Ausrichtung in Relation zu Himmelsrichtung}
     \pdfnote{Abstand zu Plakatwand}
-    \pdfnote{Mit BV in OpenCV möglich}
-    \pdfnote{Besser Tiefenkamera}
-    \pdfnote{Daten Megentometer}
-    \pdfnote{--------------------------}
-    \pdfnote{Indikatoren an Plakatwand}
-    \pdfnote{Standort der PW nicht bekannt}
     \pdfnote{--------------------------}
     \pdfnote{Mehrwert, da Kunde Werbung vor Druck sehen kann}
 \end{frame}
 
 \begin{frame}
-    \frametitle{Fragen und Diskussion}
-    Danke für Ihre Aufmerksamkeit!
-
+    \frametitle{Danke für Ihre Aufmerksamkeit!}
     Die Folien sind unter github.com/deichcode/BachelorKolloquium zu finden.
+
+    \pdfnote{Folien}
+    \pdfnote{Quellen}
+    \pdfnote{Danke}
 \end{frame}
 
 \appendix
